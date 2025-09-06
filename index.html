@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <header class="hero" id="here">
@@ -104,7 +104,7 @@
         <div class="grid cards">
           <div class="card">
             <div class="speaker-img">
-              <img src="./img/Gulnora.jpg" alt="officeImage" />
+              <img src="./img/opa h.webp" alt="officeImage" loading="lazy" />
             </div>
             <p class="speaker-name">Gulnora Xamrayeva – Psixolog</p>
             <p class="speaker-topic">
@@ -114,7 +114,7 @@
           </div>
           <div class="card">
             <div class="speaker-img">
-              <img src="./img/MARUF.webp" alt="officeImage" />
+              <img src="./img/maruf h.webp" alt="officeImage" loading="lazy" />
             </div>
             <p class="speaker-name">Maruf Murodovich – Tadbirkor</p>
             <p class="speaker-topic">
@@ -128,7 +128,11 @@
           </div>
           <div class="card">
             <div class="speaker-img">
-              <img src="./img/Gulnora.jpg" alt="officeImage" />
+              <img
+                src="./img/javohit h.webp"
+                alt="officeImage"
+                loading="lazy"
+              />
             </div>
             <p class="speaker-name">Javohir Sheraliyev – Tadbirkor</p>
             <p class="speaker-topic">
@@ -292,126 +296,71 @@
           Quyidagi formani to‘ldiring — siz bilan tez orada bog‘lanamiz.
         </p>
 
-        <form id="leadForm" novalidate>
-          <div class="form-grid">
-            <div>
-              <label for="name">Ism va familiya</label>
+        <form id="registrationForm" name="contact-form">
+          <div class="HomeFormRow">
+            <label class="HomeFormRowLabel" for="name"
+              >Ismingizni kiriting:</label
+            >
+            <input
+              class="HomeFormRowInput"
+              type="text"
+              id="name"
+              name="name"
+              autocomplete="name"
+            />
+            <p class="homeFormErrorText" id="nameError" style="display: none">
+              Iltimos, ismingizni kiriting
+            </p>
+          </div>
+          <div class="HomeFormRow">
+            <label class="HomeFormRowLabel" for="phone"
+              >Telefon raqamingiz:</label
+            >
+            <div class="phone-input-container">
+              <div class="country-selector">
+                <div class="selected-country" id="selectedCountry">
+                  <span id="selectedCountryCode">+998</span>
+                  <svg
+                    id="dropdownIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <div
+                  class="country-dropdown"
+                  id="countryDropdown"
+                  style="display: none"
+                ></div>
+              </div>
               <input
-                class="input"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Ismingiz"
-                required
-              />
-            </div>
-            <div>
-              <label for="phone">Telefon raqam</label>
-              <input
-                class="input"
+                class="HomeFormRowInput"
+                autocomplete="tel"
                 type="tel"
                 id="phone"
                 name="phone"
-                placeholder="+998 90 123 45 67"
-                pattern="^[+0-9()\-\s]{7,}$"
-                required
+                placeholder="88 888 88 88"
               />
             </div>
+            <p class="homeFormErrorText" id="phoneError" style="display: none">
+              ❌ Telefon raqam mos emas!
+            </p>
           </div>
-
-          <input type="hidden" name="source" value="Masterclass LP" />
-          <input type="hidden" name="utm_campaign" id="utm_campaign" />
-          <input type="hidden" name="utm_source" id="utm_source" />
-          <input type="hidden" name="utm_medium" id="utm_medium" />
-
-          <div
-            style="
-              display: flex;
-              gap: 12px;
-              align-items: center;
-              margin-top: 20px;
-            "
-          >
-            <input id="agree" type="checkbox" required />
-            <label for="agree" style="margin: 0; font-weight: 400">
-              Maʼlumotlarimni qayta ishlashga roziman</label
-            >
-          </div>
-
-          <div class="cta">
-            <button class="btn btn-primary btn-form" type="submit">
-              Master Classga yozilish
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                fill="currentColor"
-              >
-                <path
-                  d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <div id="status" class="status" aria-live="polite"></div>
-          <div class="footer">
-            Maʼlumotlaringiz faqat aloqaga chiqish va roʻyxatga olish uchun
-            ishlatiladi.
-          </div>
+          <button type="submit" class="btn btn-primary btn-form" id="submitBtn">
+            Ro'yxatdan o'tish
+          </button>
         </form>
       </div>
     </section>
 
-    <script>
-      const params = new URLSearchParams(location.search);
-      ["utm_campaign", "utm_source", "utm_medium"].forEach((k) => {
-        const el = document.getElementById(k);
-        if (el) el.value = params.get(k) || "";
-      });
-
-      const GOOGLE_APPS_SCRIPT_URL =
-        "https://script.google.com/macros/s/PASTE_YOURS/exec";
-      const AMOCRM_BACKEND_URL = "https://your-domain.com/api/amocrm/lead";
-
-      async function postJSON(url, payload) {
-        const res = await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        return res.ok
-          ? await res.json().catch(() => ({ ok: true }))
-          : Promise.reject(await res.text().catch(() => res.statusText));
-      }
-
-      const form = document.getElementById("leadForm");
-      const statusBox = document.getElementById("status");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        statusBox.textContent = "Yuborilmoqda…";
-
-        const fd = new FormData(form);
-        const payload = Object.fromEntries(fd.entries());
-
-        try {
-          const tasks = [];
-          if (GOOGLE_APPS_SCRIPT_URL.includes("http"))
-            tasks.push(postJSON(GOOGLE_APPS_SCRIPT_URL, payload));
-          if (AMOCRM_BACKEND_URL.includes("http"))
-            tasks.push(postJSON(AMOCRM_BACKEND_URL, payload));
-          await Promise.allSettled(tasks);
-
-          statusBox.innerHTML =
-            '<span class="ok">Arizangiz qabul qilindi! Tez orada bogʻlanamiz.</span>';
-          form.reset();
-        } catch (err) {
-          statusBox.innerHTML =
-            '<span class="err">Yuborishda xatolik. Iltimos, qayta urinib ko‘ring.</span>';
-          console.error(err);
-        }
-      });
-    </script>
+    <script src="./js/script.js"></script>
   </body>
 </html>

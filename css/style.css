@@ -182,7 +182,7 @@ a {
 }
 
 .speaker-img {
-  aspect-ratio: 4/3;
+  aspect-ratio: 4/4;
   background: #0e111a;
 }
 
@@ -210,7 +210,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: baseline;
+  justify-content: start;
   gap: 12px;
 }
 
@@ -282,7 +282,7 @@ label {
 
 @media (max-width: 720px) {
   .hero {
-    min-height: 80vh;
+    min-height: 100vh;
   }
   .mini-card {
     flex-direction: row;
@@ -317,5 +317,153 @@ label {
   100% {
     transform: translateY(20px);
     opacity: 0;
+  }
+}
+
+.homeFormErrorText {
+  color: #e53e3e;
+  margin-bottom: 12px;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.HomeFormRowInput,
+.HomeFormRowLabel {
+  font-size: 18px;
+}
+
+.HomeFormRow {
+  margin-bottom: 48px;
+}
+
+.HomeFormRowLabel {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.HomeFormRowInput {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #c9c9c9;
+  min-height: 48px;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 400;
+  background-color: transparent;
+  outline: 0;
+  height: 50px;
+  transition: border-color 0.2s;
+}
+
+.HomeFormRowInput:focus {
+  border-color: #0367fd;
+}
+
+.HomeFormRowInput::placeholder {
+  color: #aaa;
+}
+
+.phone-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.country-selector {
+  position: relative;
+  margin-right: 10px;
+}
+
+.selected-country {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #c9c9c9;
+  border-radius: 6px;
+  cursor: pointer;
+  min-height: 50px;
+}
+
+.country-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  border: 1px solid #c9c9c9;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 40;
+  max-height: 200px;
+  overflow-y: auto;
+  background: var(--card);
+}
+
+.country-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.country-option:hover {
+  background-color: #f3f7f8;
+  color: #000;
+}
+
+.country-option.selected {
+  background-color: #e6f0fa;
+  color: #000;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+  .homeFormErrorText {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .HomeFormRow {
+    margin-bottom: 34px;
+  }
+
+  .HomeFormRowLabel {
+    margin-bottom: 6px;
+  }
+
+  .HomeFormRowInput {
+    padding: 0 12px;
+    min-height: 40px;
+    background-color: transparent;
+  }
+
+  .HomeFormRowInput::placeholder {
+    color: #a3a3a3;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .homeFormErrorText {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .HomeFormRow {
+    margin-bottom: 34px;
+  }
+
+  .HomeFormRowLabel {
+    margin-bottom: 6px;
+  }
+
+  .HomeFormRowInput {
+    padding: 0 12px;
+    min-height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+  }
+
+  .HomeFormRowInput::placeholder {
+    color: #a3a3a3;
   }
 }

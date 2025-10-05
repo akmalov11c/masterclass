@@ -31,6 +31,43 @@
   text-transform: uppercase;
 }
 
+.price {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.price_text {
+  font-size: 48px;
+}
+.price_value {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.price_value del {
+  font-size: 16px;
+  color: #7a7a7a;
+  line-height: 1.1;
+}
+
+.price_value ins {
+  font-size: 24px;
+  color: #bb0707;
+  line-height: 1.1;
+}
+
 .hero-text {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
@@ -110,7 +147,7 @@
     line-height: 100%;
     letter-spacing: 0%;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 25px;
   }
 
   .hero-text {

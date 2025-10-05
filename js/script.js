@@ -197,7 +197,7 @@ registrationForm.addEventListener("submit", (e) => {
   };
 
   fetch(
-    "https://script.google.com/macros/s/AKfycbwrQO8JfI8kzWqcKKdN8VAEV081pLmnXnosIOerUfqgGaHO-s-v0bjVoFOkimwm8WN4/exec",
+    "https://script.google.com/macros/s/AKfycbycqoj9JHJAOuroSFjr-T4STt3hr1k6CQhz_kkOox-yzBPubx4sF2Fl6mPOUEes6Sw5/exec",
     {
       method: "POST",
       mode: "no-cors",

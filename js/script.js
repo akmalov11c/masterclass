@@ -206,7 +206,7 @@ registrationForm.addEventListener("submit", (e) => {
   )
     .then(() => {
       localStorage.setItem("formData", JSON.stringify(formData));
-      window.location.href = "./thankYou.html";
+      window.location.href = "./payPage.html";
     })
     .catch((error) => {
       console.error("Error:", error);

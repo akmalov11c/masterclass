@@ -196,22 +196,6 @@ registrationForm.addEventListener("submit", (e) => {
     )} - ${now.toLocaleTimeString("uz-UZ")}`,
   };
 
-  fetch(
-    "https://script.google.com/macros/s/AKfycbycqoj9JHJAOuroSFjr-T4STt3hr1k6CQhz_kkOox-yzBPubx4sF2Fl6mPOUEes6Sw5/exec",
-    {
-      method: "POST",
-      mode: "no-cors",
-      body: new URLSearchParams(formData),
-    }
-  )
-    .then(() => {
-      localStorage.setItem("formData", JSON.stringify(formData));
-      window.location.href = "./payPage.html";
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      alert("Xatolik yuz berdi. Qayta urinib ko'ring.");
-      submitBtn.disabled = false;
-      submitBtn.textContent = "YUBORISH";
-    });
+  localStorage.setItem("formData", JSON.stringify(formData));
+  window.location.href = "./payPage.html";
 });
